@@ -18,6 +18,7 @@ module.exports = {
   plugins: ['react-refresh', '@typescript-eslint', 'prettier', 'css-import-order'],
   rules: {
     '@typescript-eslint/no-use-before-define': 0,
+    '@typescript-eslint/no-empty-interface': 1,
     'react/button-has-type': 0,
     'react-refresh/only-export-components': 'warn',
     'react/react-in-jsx-scope': 0,

@@ -1,0 +1,50 @@
+@import "../../../globals.scss";
+
+.header {
+	height: 60px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	box-shadow: 0 -5px 25px 5px $c-black-60;
+	overflow: hidden;
+	background-color: $c-whitesmoke;
+	padding: 10px 20px;
+}
+
+.logo {
+	height: 100%;
+	font-size: 24px;
+	text-align: center;
+	font-weight: 700;
+	display: flex;
+	align-items: center;
+
+	&-img {
+		height: 100%;
+		width: 60px;
+		margin: 0;
+		padding: 0;
+		transform: scale(1.8);
+	}
+
+	&-link {
+		flex: 0 1 260px;
+	}
+}
+
+.nav {
+	flex: 1 1 auto;
+
+	&-list {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		gap: 20px;
+		font-size: 18px;
+	}
+}
+
+.active {
+	font-weight: bold;
+	color: $c-blue;
+}

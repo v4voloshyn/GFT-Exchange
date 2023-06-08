@@ -1,5 +1,7 @@
-function App() {
-  return <h1>hello there</h1>;
-}
+import { FC } from 'react';
 
-export default App;
+import { Layout } from './shared/components/layout/layout';
+
+export const App: FC = () => {
+  return <Layout />;
+};

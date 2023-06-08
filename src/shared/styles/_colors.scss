@@ -1,0 +1,10 @@
+$c-whitesmoke: #f8f8f8;
+$c-black-60: rgba(0, 0, 0, 0.6);
+$c-black-80: rgba(0, 0, 0, 0.8);
+$c-pink: rgba(255,189,191,1);
+$c-blue: rgba(105,161,232,1);
+$gradient: linear-gradient(135deg, rgba(255,189,191,1) 50%, rgba(105,161,232,1) 100%);
+
+$color-primary-light :$c-whitesmoke;
+$color-bg-main: $c-whitesmoke;
+$color-text-primary: $c-black-80;
