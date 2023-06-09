@@ -1,9 +1,12 @@
 $c-whitesmoke: #f8f8f8;
 $c-black-60: rgba(0, 0, 0, 0.6);
 $c-black-80: rgba(0, 0, 0, 0.8);
-$c-pink: rgba(255,189,191,1);
-$c-blue: rgba(105,161,232,1);
-$gradient: linear-gradient(135deg, rgba(255,189,191,1) 50%, rgba(105,161,232,1) 100%);
+$c-pink: #ff9a97;
+$c-pink-20: #ff9a9720;
+$c-pink-light: rgba(255, 189, 191, 1);
+$c-blue: rgba(105, 161, 232, 1);
+$main-gradient: linear-gradient(135deg, rgba(255, 189, 191, 1) 50%, rgba(105, 161, 232, 1) 100%);
+$form-gradient: linear-gradient(225deg, rgba(254, 78, 78, 1) 0%, rgba(255, 163, 162, 1) 100%);
 
 $color-primary-light :$c-whitesmoke;
 $color-bg-main: $c-whitesmoke;

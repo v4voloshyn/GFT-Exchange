@@ -1,6 +1,10 @@
 @import "./shared/styles/colors";
 @import "./shared/styles/fonts";
 
+* {
+  box-sizing: border-box;
+}
+
 #root {
   width: 100%;
   display: flex;
@@ -12,6 +16,7 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
 ul,
 ol,
 li,
@@ -33,7 +38,7 @@ body {
   box-sizing: border-box;
   font-family: $font-family-primary;
   font-weight: 400;
-  background: $gradient;
+  background: $main-gradient;
   font-size: $font-size-primary;
   color: $color-text-primary;
   transition: background 0.3s ease-in-out;
