@@ -1,60 +1,66 @@
 @import '../../../shared/styles/colors';
 @import '../../../shared/styles/fonts';
 
-.form-wrapper {
-  background-color: transparent;
-}
-
-.exchange {
-  height: 100%;
-  width: 100%;
-  margin: 10px;
+.form {
   display: flex;
   flex-direction: column;
-  background: $form-gradient;
-  border-radius: 15px;
   overflow: hidden;
+  width: 100%;
+  height: 100%;
+  margin-top: 10px;
+  
+  border-radius: 15px;
+
+  &-wrapper{
+    margin-top: 20px;
+    background-color: transparent;
+    width: 335px;
+  }
 
   &-top {
     display: flex;
     flex-direction: column;
-    flex: 0 0 200px;
+    flex: 0 0 200px;background: $form-gradient;
   }
 
   &-bottom {
     display: flex;
     background-color: $c-whitesmoke;
+    flex-direction: column;
   }
+}
 
+.exchange {
   &-from {
     display: flex;
     align-items: center;
-    padding: 30px 30px;
     margin-bottom: 50px;
+    padding: 30px 30px;
   }
 
   &-to {
-    position: relative;
     display: flex;
     align-items: center;
-    padding: 80px 30px;
+    position: relative;
     width: 100%;
+    padding: 80px 30px;
   }
 
   &-date {
-    font-size: 12px;
-    color: $c-whitesmoke;
     margin-top: 20px;
     margin-left: 20px;
+    font-size: 12px;
+    color: $c-whitesmoke;
   }
 
   &-title {
     margin-top: 10px;
-    letter-spacing: 3px;
     font-size: 24px;
-    text-align: center;
     font-weight: 400;
     color: $c-whitesmoke;
+    text-align: center;
+    letter-spacing: 3px;
+
     & span {
       font-size: 14px;
     }
@@ -62,25 +68,25 @@
 }
 
 .input {
+  outline: none;
   max-width: 200px;
-  background-color: transparent;
-  padding: 5px 15px;
   height: 60px;
+  padding: 5px 15px;
+  background-color: transparent;
   border: none;
   border-bottom: 1px solid $c-whitesmoke;
-  font-family: $font-family-primary;
   font-size: 40px;
+  font-family: $font-family-primary;
   font-weight: 600;
   color: $c-whitesmoke;
-  outline: none;
 
   &::placeholder {
     font-size: 18px;
-    letter-spacing: 1px;
-    color: inherit;
     font-family: inherit;
     font-weight: 400;
     line-height: 18px;
+    color: inherit;
+    letter-spacing: 1px;
   }
 
   &:focus {
@@ -99,8 +105,6 @@
   }
 }
 
-.number-from {}
-
 .number-to {
   border-color: $c-pink;
   color: $c-pink;
@@ -111,45 +115,46 @@
 }
 
 .custom-select {
-  position: relative;
   display: inline-block;
+  position: relative;
   width: 75px;
+  padding-left: 5px;
+  background-color: $c-pink-20;
 }
 
 .select {
-  width: 100%;
-  background-color: $c-pink-20;
-  border: none;
-  border-radius: 5px;
-  padding: 15px 0;
-  height: 60px;
-  border: none;
-  color: $c-whitesmoke;
-  cursor: pointer;
-  overflow-y: auto;
   direction: rtl;
   scrollbar-width: thin;
   scrollbar-color: #888 transparent;
+  overflow-y: auto;
+  width: 100%;
+  height: 60px;
+  padding: 15px 0;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
   font-size: 16px;
+  color: $c-whitesmoke;
   letter-spacing: 2px;
- 
+  text-align: center;
 
   &>option {
+    background-color: $c-pink-20;
+    font-size: 14px;
+    font-family: $font-family-primary;
     color: black;
     text-align: center;
-    font-family: $font-family-primary;
-    font-size: 14px;
   }
 
   &::-webkit-scrollbar {
     width: 4px;
   }
+
   &::-webkit-scrollbar-thumb {
     background-color: #888;
   }
 }
-
-.select-from {}
 
 .select-to {
   color: $c-pink;
@@ -161,21 +166,21 @@
 
 .swap {
   display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   top: 0%;
   right: 10%;
   transform: translateY(-50%);
   width: 40px;
   height: 30px;
-  background-color: $c-whitesmoke;
   padding: 20px;
-  justify-content: center;
-  align-items: center;
-  font-size: 24px;
+  transition: box-shadow 0.25s ease-in-out;
+  background-color: $c-whitesmoke;
   cursor: pointer;
   border: 1px solid $c-pink-light;
+  font-size: 24px;
   color: $c-pink;
-  transition: box-shadow 0.25s ease-in-out;
 
   &:hover {
     box-shadow: 0 0 10px 2px $c-pink-light;

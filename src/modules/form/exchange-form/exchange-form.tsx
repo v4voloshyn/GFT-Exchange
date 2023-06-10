@@ -24,7 +24,7 @@ export const ExchangeForm: FC = () => {
     handleSwapCurrencies,
   } = useCurrencyWithParams();
 
-  const currenciesSymbolsList = useSymbols();
+  const { currenciesSymbolsList } = useSymbols();
   const debouncedAmount = useDebounce(amount);
 
   useEffect(() => {
@@ -54,8 +54,8 @@ export const ExchangeForm: FC = () => {
 
   return (
     <div className="form-wrapper">
-      <form className="exchange">
-        <div className="exchange-top">
+      <form className="form">
+        <div className="form-top">
           <span className="exchange-date">June 9, 2023</span>
           <h1 className="exchange-title">
             Currency <span>⏷</span>
@@ -81,7 +81,7 @@ export const ExchangeForm: FC = () => {
             />
           </div>
         </div>
-        <div className="exchange-bottom">
+        <div className="form-bottom">
           <div className="exchange-to">
             <button className="swap" onClick={handleSwapCurrencies} type="button">
               ⇅
