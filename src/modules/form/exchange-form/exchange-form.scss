@@ -3,35 +3,42 @@
 
 .form-wrapper {
   background-color: transparent;
-  height: 400px;
 }
 
 .exchange {
   height: 100%;
   width: 100%;
+  margin: 10px;
   display: flex;
   flex-direction: column;
   background: $form-gradient;
   border-radius: 15px;
   overflow: hidden;
 
-  &-from {
-    position: relative;
-    padding: 15px 30px;
-    height: 50%;
-    width: 100%;
+  &-top {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    flex: 0 0 200px;
+  }
+
+  &-bottom {
+    display: flex;
+    background-color: $c-whitesmoke;
+  }
+
+  &-from {
+    display: flex;
+    align-items: center;
+    padding: 30px 30px;
+    margin-bottom: 50px;
   }
 
   &-to {
+    position: relative;
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
-    padding: 30px;
-    height: 50%;
+    padding: 80px 30px;
     width: 100%;
-    background-color: $c-whitesmoke;
   }
 
   &-date {
@@ -48,35 +55,51 @@
     text-align: center;
     font-weight: 400;
     color: $c-whitesmoke;
+    & span {
+      font-size: 14px;
+    }
   }
 }
 
 .input {
+  max-width: 200px;
   background-color: transparent;
   padding: 5px 15px;
   height: 60px;
   border: none;
   border-bottom: 1px solid $c-whitesmoke;
   font-family: $font-family-primary;
-  font-size: 24px;
+  font-size: 40px;
   font-weight: 600;
   color: $c-whitesmoke;
   outline: none;
 
   &::placeholder {
     font-size: 18px;
+    letter-spacing: 1px;
     color: inherit;
     font-family: inherit;
     font-weight: 400;
+    line-height: 18px;
   }
 
   &:focus {
     border-bottom-width: 2px;
   }
+
+  /* Disable arrow buttons in type=number */
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &[type=number] {
+    -moz-appearance: textfield;
+  }
 }
 
-.number-from {
-}
+.number-from {}
 
 .number-to {
   border-color: $c-pink;
@@ -87,27 +110,51 @@
   }
 }
 
+.custom-select {
+  position: relative;
+  display: inline-block;
+  width: 75px;
+}
+
 .select {
+  width: 100%;
   background-color: $c-pink-20;
+  border: none;
   border-radius: 5px;
-  padding: 15px;
+  padding: 15px 0;
   height: 60px;
   border: none;
   color: $c-whitesmoke;
   cursor: pointer;
+  overflow-y: auto;
+  direction: rtl;
+  scrollbar-width: thin;
+  scrollbar-color: #888 transparent;
+  font-size: 16px;
+  letter-spacing: 2px;
+ 
 
-  & > option {
+  &>option {
     color: black;
+    text-align: center;
+    font-family: $font-family-primary;
+    font-size: 14px;
+  }
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #888;
   }
 }
 
-.select-from {
-}
+.select-from {}
 
 .select-to {
   color: $c-pink;
 
-  & > option {
+  &>option {
     color: black;
   }
 }
@@ -115,9 +162,9 @@
 .swap {
   display: flex;
   position: absolute;
-  bottom: 0%;
+  top: 0%;
   right: 10%;
-  transform: translateY(50%);
+  transform: translateY(-50%);
   width: 40px;
   height: 30px;
   background-color: $c-whitesmoke;
