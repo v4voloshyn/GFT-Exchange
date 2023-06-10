@@ -7,10 +7,8 @@ interface InputProps extends HTMLAttributes<HTMLInputElement> {
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ type, onChange, value, ...rest }, ref) => {
-    return (
-      <input type={type || 'text'} onChange={onChange} value={value || ''} ref={ref} {...rest} />
-    );
+  ({ type = 'text', onChange = () => {}, value = '', ...rest }, ref) => {
+    return <input type={type} onChange={onChange} value={value} ref={ref} {...rest} />;
   }
 );
 
