@@ -1,10 +1,14 @@
 import { ChangeEvent, FC, useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 
-import { getSymbols } from '../../../shared/api/api';
-import { serializeQueryParams } from '../../../shared/utils/serializeQueryParams';
+import { convertCurrencyAmount } from '../../../shared/api/api';
+import { useDebounce } from '../../../shared/hooks/useDebounce';
 import { Input } from '../components/input';
 import { Select } from '../components/select';
+import { useSymbols } from '../hooks/useSymbols';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 import './exchange-form.scss';
 
@@ -18,46 +22,56 @@ export const ExchangeForm: FC = () => {
   const [resultValue, setResultValue] = useState('');
   const [baseCurrency, setBaseCurrency] = useState(INITIAL_CURRENCIES.BASE);
   const [targetCurrency, setTargetCurrency] = useState(INITIAL_CURRENCIES.TARGET);
-  const [currenciesSymbolsList, setCurrenciesSymbolsList] = useState<string[]>([]);
-
   const [searchParams, setSearchParams] = useSearchParams();
+  const debouncedAmount = useDebounce(amount);
+  const currenciesSymbolsList = useSymbols();
+
+  const params = Object.fromEntries([...searchParams]);
 
   useEffect(() => {
-    getSymbols().then((currenciesListData) => setCurrenciesSymbolsList(currenciesListData));
-  }, []);
-
-  useEffect(() => {
-    const params = serializeQueryParams(searchParams);
-    const { from, to } = params;
-
-    if (from && currenciesSymbolsList.includes(from)) {
-      setBaseCurrency(from);
+    if (debouncedAmount === '') {
+      setResultValue('');
     }
-    if (to && currenciesSymbolsList.includes(to)) {
-      setTargetCurrency(to);
+
+    if (debouncedAmount === '0') {
+      setResultValue('0');
     }
-  }, [currenciesSymbolsList, searchParams]);
+
+    if (!debouncedAmount || !baseCurrency || !targetCurrency || Number(debouncedAmount) <= 0) {
+      return;
+    }
+
+    convertCurrencyAmount({ from: baseCurrency, to: targetCurrency, amount: debouncedAmount })
+      .then((data) => {
+        const result = data.result.toFixed(3);
+        setResultValue(String(result));
+      })
+      .catch((e) => toast(e.message));
+  }, [baseCurrency, targetCurrency, debouncedAmount]);
 
   const handleAmountChange = (e: ChangeEvent<HTMLInputElement>) => {
     const newAmount = e.target.value;
     setAmount(newAmount);
+    setSearchParams({ ...params, amount: newAmount || '0' });
   };
 
   const handleChangeBaseCurrency = (e: ChangeEvent<HTMLSelectElement>) => {
     const newBaseCurrency = e.target.value;
     setBaseCurrency(newBaseCurrency);
+    setSearchParams({ ...params, from: newBaseCurrency });
   };
 
   const handleChangeTargetCurrency = (e: ChangeEvent<HTMLSelectElement>) => {
     const newTargetCurrency = e.target.value;
     setTargetCurrency(newTargetCurrency);
+    setSearchParams({ ...params, to: newTargetCurrency });
   };
 
   const handleSwapCurrencies = () => {
     if (targetCurrency && baseCurrency) {
       setBaseCurrency(targetCurrency);
       setTargetCurrency(baseCurrency);
-      setSearchParams({ from: `${targetCurrency}`, to: `${baseCurrency}` });
+      setSearchParams({ ...params, from: `${targetCurrency}`, to: `${baseCurrency}` });
     }
   };
 
@@ -104,6 +118,7 @@ export const ExchangeForm: FC = () => {
           />
         </div>
       </form>
+      <ToastContainer position="bottom-right" />
     </div>
   );
 };
