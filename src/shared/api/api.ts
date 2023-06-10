@@ -5,11 +5,12 @@ import { serializeSymbols } from '../utils/serializeSymbols';
 import { ConvertCurrencyRequestDto } from './dto/convert-currency-request.dto';
 import { ConvertCurrencyResponseDto } from './dto/convert-currency-response.dto';
 import { SymbolsResponseDto } from './dto/symbols-response.dto';
+import { handleError } from './error-handler';
 
 const BASE_URL = 'https://api.exchangerate.host';
 const ENDPOINT = {
   LATEST: '/latest',
-  CONVERT: '/convert', // ?from=USD&to=EUR
+  CONVERT: '/convert',
   SYMBOLS: '/symbols',
 };
 
@@ -18,21 +19,41 @@ const api = axios.create({
 });
 
 export const getSymbols = async () => {
-  const response = await api.get<SymbolsResponseDto>(ENDPOINT.SYMBOLS);
-  const serializedData = serializeSymbols(response.data);
-  return serializedData;
+  try {
+    const response = await api.get<SymbolsResponseDto>(ENDPOINT.SYMBOLS);
+    const serializedData = serializeSymbols(response.data);
+
+    return serializedData;
+  } catch (error) {
+    handleError(error);
+    throw error;
+  }
 };
 
 export const getLatestRates = async () => {
-  const response = await api.get(ENDPOINT.LATEST);
-  return response.data;
+  try {
+    const response = await api.get(ENDPOINT.LATEST);
+    return response.data;
+  } catch (error) {
+    handleError(error);
+    throw error;
+  }
 };
 
 export const convertCurrencyAmount = async ({ from, to, amount }: ConvertCurrencyRequestDto) => {
-  const response = await api.get<ConvertCurrencyResponseDto>(
-    `${ENDPOINT.CONVERT}?from=${from}&to=${to}&amount=${amount ?? 1}`
-  );
-  const data = response.data;
+  try {
+    const response = await api.get<ConvertCurrencyResponseDto>(
+      `${ENDPOINT.CONVERT}?from=${from}&to=${to}&amount=${amount}`
+    );
 
-  return data;
+    if (response.data.result === null) {
+      throw new Error('Something went wrong. Check your input data');
+    }
+
+    const data = response.data;
+    return data;
+  } catch (error) {
+    handleError(error);
+    throw error;
+  }
 };
