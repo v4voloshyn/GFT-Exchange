@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from 'react';
 
-export const useDebounce = (value: any, delayMs = 200) => {
-  const [debouncedValue, setDebouncedValue] = useState(null);
+export const useDebounce = <T>(value: T, delayMs = 200): T => {
+  const [debouncedValue, setDebouncedValue] = useState(value);
 
   useEffect(() => {
     const timerId = setTimeout(() => {
