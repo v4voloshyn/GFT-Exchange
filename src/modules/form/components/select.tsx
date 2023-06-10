@@ -15,12 +15,14 @@ export const Select: FC<SelectProps> = ({
   ...rest
 }) => {
   return (
-    <select name={name} onChange={onChange} value={value} {...rest}>
-      {optionsList.map((symbolName) => (
-        <option key={symbolName} value={symbolName}>
-          {symbolName}
-        </option>
-      ))}
-    </select>
+    <div className="custom-select">
+      <select name={name} onChange={onChange} value={value} {...rest}>
+        {optionsList.map((symbolName) => (
+          <option key={symbolName} value={symbolName}>
+            {symbolName}
+          </option>
+        ))}
+      </select>
+    </div>
   );
 };

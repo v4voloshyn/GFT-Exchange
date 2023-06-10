@@ -4,6 +4,8 @@ interface InputProps extends HTMLAttributes<HTMLInputElement> {
   onChange?: ComponentProps<'input'>['onChange'];
   type?: ComponentProps<'input'>['type'];
   value?: ComponentProps<'input'>['value'];
+  step?: ComponentProps<'input'>['step'];
+  min?: ComponentProps<'input'>['min'];
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
