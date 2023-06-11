@@ -1,0 +1,22 @@
+@import '../../shared/styles/colors';
+@import '../../shared/styles/fonts';
+
+.about {
+  margin-top: 50px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  min-width: 320px;
+  min-height: 50vh;
+
+  &-container {
+    width: 600px;
+    background-color: $c-whitesmoke;
+    border-radius: 5px;
+    padding: 10px;
+  }
+
+  & h1 {
+    text-align: center;
+  }
+}
