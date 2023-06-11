@@ -3,6 +3,8 @@ import { toast } from 'react-toastify';
 
 import { convertCurrencyAmount } from '../../../shared/api/api';
 import { useDebounce } from '../../../shared/hooks/useDebounce';
+import { formatWithFixed } from '../../../shared/utils/format-number';
+import { currentDate } from '../../../shared/utils/getCurrentDate';
 import { Input } from '../components/input';
 import { Select } from '../components/select';
 import { useCurrencyWithParams } from '../hooks/useCurrencyWithParams';
@@ -24,7 +26,7 @@ export const ExchangeForm: FC = () => {
     handleSwapCurrencies,
   } = useCurrencyWithParams();
 
-  const { currenciesSymbolsList } = useSymbols();
+  const currenciesSymbolsList = useSymbols();
   const debouncedAmount = useDebounce(amount);
 
   useEffect(() => {
@@ -43,7 +45,7 @@ export const ExchangeForm: FC = () => {
     convertCurrencyAmount({ from: baseCurrency, to: targetCurrency, amount: debouncedAmount })
       .then((data) => {
         const result = data?.result;
-        const formattedResult = result?.toFixed(2).replace(/\.?0+$/, '');
+        const formattedResult = formatWithFixed(result);
         setResultValue(String(formattedResult));
       })
       .catch((e) => {
@@ -56,7 +58,7 @@ export const ExchangeForm: FC = () => {
     <div className="form-wrapper">
       <form className="form">
         <div className="form-top">
-          <span className="exchange-date">June 9, 2023</span>
+          <span className="exchange-date">{currentDate}</span>
           <h1 className="exchange-title">
             Currency <span>⏷</span>
           </h1>

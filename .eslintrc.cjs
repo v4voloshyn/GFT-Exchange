@@ -6,8 +6,8 @@ module.exports = {
     'airbnb/hooks',
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended',
     'plugin:css-import-order/recommended',
+    'plugin:prettier/recommended',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -34,7 +34,16 @@ module.exports = {
     'import/order': [
       2,
       {
-        groups: ['builtin', 'external', 'internal', 'parent', ['sibling', 'index'], 'object'],
+        groups: [
+          'builtin',
+          'external',
+          'object',
+          ['internal', 'parent'],
+          'sibling',
+          'index',
+          'type',
+          'unknown',
+        ],
         pathGroups: [
           {
             pattern: '@/**',
@@ -46,16 +55,25 @@ module.exports = {
             position: 'after',
           },
           {
-            pattern: '.*/**/*.css',
-            group: 'object',
+            pattern: '/**/*.css',
+            patternOptions: { matchBase: true },
+            group: 'unknown',
+            position: 'before',
+          },
+          {
+            pattern: '*.css',
+            patternOptions: { matchBase: true },
+            group: 'unknown',
             position: 'after',
           },
           {
-            pattern: '.*/**/*.scss',
-            group: 'object',
+            pattern: '{.,..}/**/*.scss',
+            patternOptions: { matchBase: true },
+            group: 'unknown',
             position: 'after',
           },
         ],
+        pathGroupsExcludedImportTypes: ['object'],
         alphabetize: {
           order: 'asc',
         },
