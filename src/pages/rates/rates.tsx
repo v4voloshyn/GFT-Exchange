@@ -1,9 +1,13 @@
 import { FC } from 'react';
 
-import { Layout } from '../../shared/components/layout/layout';
+import { RatesList } from '../../modules/form/rates-list/rates-list';
 
-interface RatesProps {}
+import './rates.scss';
 
-export const Rates: FC<RatesProps> = () => {
-  return <div>Rates</div>;
+export const Rates: FC = () => {
+  return (
+    <div className="rates-container">
+      <RatesList />
+    </div>
+  );
 };

@@ -4,6 +4,8 @@ import { serializeSymbols } from '../utils/serializeSymbols';
 
 import { ConvertCurrencyRequestDto } from './dto/convert-currency-request.dto';
 import { ConvertCurrencyResponseDto } from './dto/convert-currency-response.dto';
+import { GetRatesRequestDto } from './dto/get-rates-request.dto';
+import { GetRatesResponseDto } from './dto/get-rates-response.dto';
 import { SymbolsResponseDto } from './dto/symbols-response.dto';
 import { handleError } from './error-handler';
 
@@ -21,19 +23,23 @@ const api = axios.create({
 export const getSymbols = async () => {
   try {
     const response = await api.get<SymbolsResponseDto>(ENDPOINT.SYMBOLS);
-    const serializedData = serializeSymbols(response.data);
+    const serializedSymbolsData = serializeSymbols(response.data);
 
-    return serializedData;
+    return serializedSymbolsData;
   } catch (error) {
     handleError(error);
     throw error;
   }
 };
 
-export const getLatestRates = async () => {
+export const getLatestRates = async ({ base, amount }: GetRatesRequestDto) => {
   try {
-    const response = await api.get(ENDPOINT.LATEST);
-    return response.data;
+    const response = await api.get<GetRatesResponseDto>(
+      `${ENDPOINT.LATEST}?base=${base}&amount=${amount}`
+    );
+    const rates = response.data.rates;
+
+    return rates;
   } catch (error) {
     handleError(error);
     throw error;
@@ -51,6 +57,7 @@ export const convertCurrencyAmount = async ({ from, to, amount }: ConvertCurrenc
     }
 
     const data = response.data;
+
     return data;
   } catch (error) {
     handleError(error);
