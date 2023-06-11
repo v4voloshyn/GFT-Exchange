@@ -27,15 +27,14 @@
   letter-spacing: 2px;
 
   & > option {
-    &:checked {
-      background-color: $c-pink-20;
-      font-size: 14px;
-      font-family: $font-family-primary;
-      color: black;
-      text-align: center;
-    }
+    background-color: $c-pink-20;
+    font-size: 14px;
+    font-family: $font-family-primary;
+    color: black;
+    text-align: center;
 
-    &:hover {
+    &:hover,
+    &:checked {
       background-color: $c-blue;
     }
   }
