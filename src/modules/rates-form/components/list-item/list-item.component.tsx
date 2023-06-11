@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { formatWithFixed } from '../../../../../shared/utils/format-number';
+import { formatWithFixed } from '../../../../shared/utils/formatNumber';
 
 import './list-item.scss';
 

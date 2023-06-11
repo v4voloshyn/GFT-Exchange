@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { RatesList } from '../../modules/form/rates-list/rates-list';
+import { RatesList } from '../../modules/rates-form/rates-form.module';
 
 import './rates.scss';
 

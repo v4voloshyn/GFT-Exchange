@@ -1,0 +1,40 @@
+@import '../../../shared/styles/colors';
+@import '../../../shared/styles/fonts';
+
+.input {
+	outline: none;
+	max-width: 200px;
+	height: 60px;
+	padding: 5px 15px;
+	background-color: transparent;
+	border: none;
+	border-bottom: 1px solid $c-whitesmoke;
+	font-size: 40px;
+	font-family: $font-family-primary;
+	font-weight: 600;
+	color: $c-whitesmoke;
+ 
+	&::placeholder {
+	  font-size: 18px;
+	  font-family: inherit;
+	  font-weight: 400;
+	  line-height: 18px;
+	  color: inherit;
+	  letter-spacing: 1px;
+	}
+ 
+	&:focus {
+	  border-bottom-width: 2px;
+	}
+ 
+	/* Disable arrow buttons in type=number */
+	&::-webkit-outer-spin-button,
+	&::-webkit-inner-spin-button {
+	  -webkit-appearance: none;
+	  margin: 0;
+	}
+ 
+	&[type='number'] {
+	  -moz-appearance: textfield;
+	}
+ }

@@ -1,30 +1,39 @@
 @import '../../../globals.scss';
+@import '../../styles/mixins';
 
 .header {
-  height: 60px;
+  box-shadow: 0 -5px 25px 5px $c-black-60;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 -5px 25px 5px $c-black-60;
   overflow: hidden;
+  height: 60px;
+  padding: 10px 30px;
   background-color: $c-whitesmoke;
-  padding: 10px 20px;
+
+  @include responsive(mobile) {
+    padding: 10px 15px;
+  }
 }
 
 .logo {
-  height: 100%;
-  font-size: 24px;
-  text-align: center;
-  font-weight: 700;
   display: flex;
   align-items: center;
+  height: 100%;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+
+  @include responsive(mobile) {
+    font-size: 16px;
+  }
 
   &-img {
-    height: 100%;
+    transform: scale(1.8);
     width: 60px;
+    height: 100%;
     margin: 0;
     padding: 0;
-    transform: scale(1.8);
   }
 
   &-link {
@@ -37,11 +46,16 @@
 
   &-list {
     display: flex;
-    align-items: center;
     justify-content: flex-end;
+    align-items: center;
     gap: 20px;
     font-size: 18px;
+
+    @include responsive(mobile) {
+      font-size: 16px;
+    }
   }
+
 }
 
 .active {

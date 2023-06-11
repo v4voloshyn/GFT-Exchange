@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from 'react';
 
 export const useDebounce = <T>(value: T, delayMs = 200): T => {

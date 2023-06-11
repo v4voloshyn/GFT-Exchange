@@ -1,5 +1,7 @@
 import { forwardRef, ComponentProps, HTMLAttributes } from 'react';
 
+import './input.scss';
+
 interface InputProps extends HTMLAttributes<HTMLInputElement> {
   onChange?: ComponentProps<'input'>['onChange'];
   type?: ComponentProps<'input'>['type'];
@@ -10,7 +12,19 @@ interface InputProps extends HTMLAttributes<HTMLInputElement> {
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ type = 'text', onChange = () => {}, value = '', ...rest }, ref) => {
-    return <input type={type} onChange={onChange} value={value} ref={ref} {...rest} />;
+    const { className, ...otherProps } = rest;
+    const classNames = className ? `input ${className}` : 'input';
+
+    return (
+      <input
+        className={classNames}
+        type={type}
+        onChange={onChange}
+        value={value}
+        ref={ref}
+        {...otherProps}
+      />
+    );
   }
 );
 

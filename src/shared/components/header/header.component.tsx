@@ -3,9 +3,7 @@ import { NavLink, Link } from 'react-router-dom';
 
 import './header.scss';
 
-interface HeaderProps {}
-
-export const Header: FC<HeaderProps> = () => {
+export const Header: FC = () => {
   return (
     <header className="header">
       <Link to="/" className="logo-link">

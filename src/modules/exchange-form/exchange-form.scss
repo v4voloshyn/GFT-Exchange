@@ -1,0 +1,52 @@
+@import '../../shared/styles/colors';
+@import '../../shared/styles/fonts';
+
+.exchange {
+  &-to {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    padding: 80px 30px;
+  }
+}
+
+.number-to {
+  border-color: $c-pink;
+  color: $c-pink;
+
+  &::placeholder {
+    color: inherit;
+  }
+}
+
+.select-to {
+  color: $c-pink;
+
+  &>option {
+    color: black;
+  }
+}
+
+.swap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0%;
+  right: 10%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 30px;
+  padding: 20px;
+  transition: box-shadow 0.25s ease-in-out;
+  background-color: $c-whitesmoke;
+  cursor: pointer;
+  border: 1px solid $c-pink-light;
+  font-size: 24px;
+  color: $c-pink;
+
+  &:hover {
+    box-shadow: 0 0 10px 2px $c-pink-light;
+  }
+}

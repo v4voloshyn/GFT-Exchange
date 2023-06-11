@@ -1,0 +1,27 @@
+@import '../../../../shared/styles/colors';
+
+.list {
+  &-item {
+    box-shadow: $shadow-black-20;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    padding: 5px;
+    padding-right: 20px;
+
+    &:nth-of-type(odd) {
+      background-color: $c-dark-blue;
+    }
+
+    & .currency {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      &-img {
+        height: 32px;
+      }
+    }
+  }
+}

@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 
-import { getSymbols } from '../../../shared/api/api';
+import { getSymbols } from '../../shared/api/api';
 
-export const useSymbols = () => {
+export const useSymbolsList = () => {
   const [currenciesSymbolsList, setCurrenciesSymbolsList] = useState<string[]>([]);
 
   useEffect(() => {

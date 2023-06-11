@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { ExchangeForm } from '../../modules/form/exchange-form/exchange-form';
+import { ExchangeForm } from '../../modules/exchange-form/exchange-form.module';
 
 import './main.scss';
 
