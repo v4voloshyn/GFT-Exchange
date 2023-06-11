@@ -22,3 +22,31 @@
 ### P.S. Якщо код ще не покритий тестами, значить цей процес ще триває і обов'язково завершиться в найближчий день-два ;)
 
 ### P.S.S. Тести будуть unit - я використовую vitest, testing-library/react а також testing-library/userEvent як доповнення до другого
+
+<hr/>
+
+## Getting started
+
+To run the application on your local machine follow these steps:
+
+### Installation
+
+1. Clone the repository
+   ```sh
+   git clone https://github.com/v4voloshyn/GFT-Exchange.git .
+   ```
+2. Install NPM packages
+   ```sh
+   npm i
+   ```
+3. And that's all!
+
+## Usage
+
+To start the application locally in dev-mode on **5555** PORT:
+
+```sh
+npm run dev
+```
+
+Then open [http://localhost:5555](http://localhost:5555/)
