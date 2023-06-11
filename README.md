@@ -1,6 +1,6 @@
 # Про цей Web Application
 
-## Доречі, тут ви можете його переглянути вживу: [deploy on Vercel](https://gft-exchange.vercel.app/)
+## [Link on Vercel](https://gft-exchange.vercel.app/)
 <hr/>
 
 1. Даний застосунок дозволяє конвертувати будь-яку валюту світу в іншу валюту (в тому числі і криптовалюту)
