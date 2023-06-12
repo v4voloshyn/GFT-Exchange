@@ -8,11 +8,11 @@ import { CurrencyForm } from '../components/currency-form/currency-form.componen
 import { useCurrencyWithParams } from '../hooks/useCurrencyWithParams';
 import { useSymbolsList } from '../hooks/useSymbolsList';
 
-import { ListItem } from './components/list-item/list-item.component';
+import { RatesList } from './components/rates-list/rates-list.component';
 
-import './rates-list.scss';
+import './rates-form.scss';
 
-export const RatesList: FC = () => {
+export const RatesForm: FC = () => {
   const [ratesList, setRatesList] = useState<Rates>({});
 
   const { amount, handleAmountChange, baseCurrency, handleChangeBaseCurrency } =
@@ -48,16 +48,7 @@ export const RatesList: FC = () => {
       handleChangeBaseCurrency={handleChangeBaseCurrency}
       currenciesSymbolsList={currenciesSymbolsList}
     >
-      <div className="rates">
-        <ul className="rates-list">
-          {Object.entries(ratesList).map(([symbol, rate]) => (
-            <ListItem key={symbol} rate={rate} symbol={symbol} flagImgSrc={flagList[symbol]} />
-          ))}
-          {Object.keys(ratesList).length === 0 ? (
-            <li className="item-empty">Please select a currency and enter the amount</li>
-          ) : null}
-        </ul>
-      </div>
+      <RatesList ratesList={ratesList} flagList={flagList} />
     </CurrencyForm>
   );
 };
