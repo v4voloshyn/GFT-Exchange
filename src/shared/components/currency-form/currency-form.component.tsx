@@ -1,9 +1,9 @@
 import { FC } from 'react';
 
-import { SortIcon } from '../../../shared/components/icons/sort-icon';
-import { currentDate } from '../../../shared/utils/getCurrentDate';
-import { Input } from '../input/input.component';
-import { Select } from '../select/select.component';
+import { currentDate } from '../../utils/getCurrentDate';
+import { SortIcon } from '../icons/sort-icon';
+import { Input } from '../ui/input/input.component';
+import { Select } from '../ui/select/select.component';
 
 import './currency-form.scss';
 
