@@ -3,10 +3,10 @@ import { toast } from 'react-toastify';
 
 import { getLatestRates } from '../../shared/api/api';
 import { Rates } from '../../shared/api/dto/get-rates-response.dto';
+import { CurrencyForm } from '../../shared/components/currency-form/currency-form.component';
+import { useCurrencyWithParams } from '../../shared/hooks/useCurrencyWithParams';
 import { useDebounce } from '../../shared/hooks/useDebounce';
-import { CurrencyForm } from '../components/currency-form/currency-form.component';
-import { useCurrencyWithParams } from '../hooks/useCurrencyWithParams';
-import { useSymbolsList } from '../hooks/useSymbolsList';
+import { useSymbolsList } from '../../shared/hooks/useSymbolsList';
 
 import { RatesList } from './components/rates-list/rates-list.component';
 

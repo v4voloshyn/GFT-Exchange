@@ -2,13 +2,13 @@ import { FC, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 
 import { convertCurrencyAmount } from '../../shared/api/api';
+import { CurrencyForm } from '../../shared/components/currency-form/currency-form.component';
+import { Input } from '../../shared/components/ui/input/input.component';
+import { Select } from '../../shared/components/ui/select/select.component';
+import { useCurrencyWithParams } from '../../shared/hooks/useCurrencyWithParams';
 import { useDebounce } from '../../shared/hooks/useDebounce';
+import { useSymbolsList } from '../../shared/hooks/useSymbolsList';
 import { formatWithFixed } from '../../shared/utils/formatNumber';
-import { CurrencyForm } from '../components/currency-form/currency-form.component';
-import { Input } from '../components/input/input.component';
-import { Select } from '../components/select/select.component';
-import { useCurrencyWithParams } from '../hooks/useCurrencyWithParams';
-import { useSymbolsList } from '../hooks/useSymbolsList';
 
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -46,7 +46,7 @@ export const ExchangeForm: FC = () => {
       .then((data) => {
         const result = data?.result;
         const formattedResult = formatWithFixed(result);
-        setResultValue(String(formattedResult));
+        setResultValue(formattedResult);
       })
       .catch((e) => {
         toast(e.message);
