@@ -31,7 +31,7 @@ export const useCurrencyWithParams = () => {
 
   const handleAmountChange = (e: ChangeEvent<HTMLInputElement>) => {
     const newAmount = e.target.value;
-    const validAmountNumbers = newAmount.replace(/[^0-9.],-,+/gi, '');
+    const validAmountNumbers = newAmount.replace(/[^0-9.]/g, '');
     if (validAmountNumbers.length === 0) {
       setAmount('');
       setSearchParams({ ...params, amount: '' });
