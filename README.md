@@ -1,6 +1,7 @@
 # 💲Rates&Exchange💲
 
 ## [🔗Link on Vercel](https://gft-exchange.vercel.app/)
+
 <hr/>
 
 ## About this web application
@@ -19,8 +20,10 @@
    - reuse of the CurrencyForm on different pages;
    - images are loaded gradually (lazy loading);
    - any of API error in requests are caught on the View layer and displayed as pop-up notifications with toastify.
-1. Liners and plugins are used to format the code and follow a single code style
+8. Liners and plugins are used to format the code and follow a single code style
+
 ### P.S. If the code is not yet covered by tests, then this process is still ongoing and will be completed in the next day or two ;)
+
 ### P.S.S. The tests will be unit - I use vitest, testing-library/react and testing-library/userEvent as a complement to the second one
 
 <hr/>

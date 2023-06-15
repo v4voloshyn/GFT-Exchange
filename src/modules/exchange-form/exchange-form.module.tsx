@@ -2,13 +2,13 @@ import { FC, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 
 import { convertCurrencyAmount } from '../../shared/api/api';
-import { Input } from '../../shared/components/ui/input/input.component';
-import { useDebounce } from '../../shared/hooks/useDebounce';
-import { formatWithFixed } from '../../shared/utils/formatNumber';
 import { CurrencyForm } from '../../shared/components/currency-form/currency-form.component';
+import { Input } from '../../shared/components/ui/input/input.component';
 import { Select } from '../../shared/components/ui/select/select.component';
-import { useCurrencyWithParams } from '../hooks/useCurrencyWithParams';
-import { useSymbolsList } from '../hooks/useSymbolsList';
+import { useCurrencyWithParams } from '../../shared/hooks/useCurrencyWithParams';
+import { useDebounce } from '../../shared/hooks/useDebounce';
+import { useSymbolsList } from '../../shared/hooks/useSymbolsList';
+import { formatWithFixed } from '../../shared/utils/formatNumber';
 
 import 'react-toastify/dist/ReactToastify.css';
 

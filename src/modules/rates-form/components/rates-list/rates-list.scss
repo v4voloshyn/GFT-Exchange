@@ -2,31 +2,31 @@
 @import '../../../../shared/styles/fonts';
 
 .rates {
-	&-list {
-		display: flex;
-		flex-direction: column;
-		row-gap: 10px;
-		overflow-y: scroll;
-		height: 100%;
-		padding: 10px 15px;
-		background-color: $c-whitesmoke;
+  &-list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    overflow-y: scroll;
+    height: 100%;
+    padding: 10px 15px;
+    background-color: $c-whitesmoke;
 
-		&::-webkit-scrollbar {
-			width: 4px;
-		}
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
 
-		&::-webkit-scrollbar-thumb {
-			background-color: $c-darkgray;
-		}
-	}
+    &::-webkit-scrollbar-thumb {
+      background-color: $c-darkgray;
+    }
+  }
 }
 
 .item-empty {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 100%;
-	font-size: 18px;
-	font-weight: 600;
-	text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
 }
