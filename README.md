@@ -1,27 +1,27 @@
-# Про цей Web Application
+# 💲Rates&Exchange💲
 
-## [Link on Vercel](https://gft-exchange.vercel.app/)
+## [🔗Link on Vercel](https://gft-exchange.vercel.app/)
 <hr/>
 
-1. Даний застосунок дозволяє конвертувати будь-яку валюту світу в іншу валюту (в тому числі і криптовалюту)
-2. Також однією з функцій застосунку є можливість перегляду вартості однієї валюти стосовно інших
-3. Всі дані про валюти беруться за адресою: *https://exchangerate.host/#/#docs*
-4. Зображення прапорів формується динамічно в залежності від коду валют які є на сервері.
-5. При розробці застосунку основна увага приділялась дизайну додатку, стилю та якості коду а також доступності додатку з клавіатури.
-6. Всю можливу логіку яку можна було абстрагувати від компонента я виносив у хуки.
-7. Функціонал додатку відповідає заданим вимогам а також покриває деякі edge-кейси, такі як:
-   - від'ємне значення в полі вводу;
-   - відсутність одного з обов'язкових query параметрів в URL params не робить зайвий запит на сервер;
-   - некоректні символи в полі вводу;
-   - debounce поля вводу задля уникнення надмірних запитів на сервер;
-   - перевикористання однієї форми на різних сторінках;
-   - зображення підвантажуються поступово (lazy loading);
-   - будь-які помилки запиту чи API ловляться на View шарі і показуються у вигляді попап сповіщення задопомогою toastify.
-   - Використовуються лінтери та плагіни для форматування коду та дотримання єдиного код-стилю
+## About this web application
 
-### P.S. Якщо код ще не покритий тестами, значить цей процес ще триває і обов'язково завершиться в найближчий день-два ;)
-
-### P.S.S. Тести будуть unit - я використовую vitest, testing-library/react а також testing-library/userEvent як доповнення до другого
+1. This application allows you to convert any currency of the world into another currency (including cryptocurrency)
+2. Also, one of the application's functions is the ability to view the value of one currency in relation to others
+3. All data on currencies are taken from: https://exchangerate.host/#/#docs
+4. The image of flags is formed dynamically depending on the code of currencies available on the server.
+5. When developing the application, the main attention focused on the design of the application, the style and quality of the code, as well as the accessibility of the application from the keyboard.
+6. I put into hooks all possible logic that could be abstracted from the component.
+7. The application functionality meets the specified requirements and also covers some edge cases, such as:
+   - negative value in the input field;
+   - the lack of one of the required query parameters in the URL params does not make an extra request to the server;
+   - incorrect characters in the input field;
+   - debounce input fields to avoid excessive requests to the server;
+   - reuse of the CurrencyForm on different pages;
+   - images are loaded gradually (lazy loading);
+   - any of API error in requests are caught on the View layer and displayed as pop-up notifications with toastify.
+1. Liners and plugins are used to format the code and follow a single code style
+### P.S. If the code is not yet covered by tests, then this process is still ongoing and will be completed in the next day or two ;)
+### P.S.S. The tests will be unit - I use vitest, testing-library/react and testing-library/userEvent as a complement to the second one
 
 <hr/>
 
@@ -39,7 +39,7 @@ To run the application on your local machine follow these steps:
    ```sh
    npm i
    ```
-3. And that's all!
+3. 🏁 And that's all! 🙌
 
 ## Usage
 
