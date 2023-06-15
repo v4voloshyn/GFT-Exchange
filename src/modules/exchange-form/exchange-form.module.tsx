@@ -46,7 +46,7 @@ export const ExchangeForm: FC = () => {
       .then((data) => {
         const result = data?.result;
         const formattedResult = formatWithFixed(result);
-        setResultValue(String(formattedResult));
+        setResultValue(formattedResult);
       })
       .catch((e) => {
         toast(e.message);
