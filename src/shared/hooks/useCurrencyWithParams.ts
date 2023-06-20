@@ -1,7 +1,7 @@
 import { ChangeEvent, useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-const INITIAL_CURRENCIES = {
+export const INITIAL_CURRENCIES = {
   BASE: 'USD',
   TARGET: 'EUR',
 };
