@@ -1,6 +1,5 @@
 import { renderHook, act } from '@testing-library/react';
 import { ChangeEvent } from 'react';
-import { useSearchParams } from 'react-router-dom';
 import { vi } from 'vitest';
 
 import { useCurrencyWithParams } from './useCurrencyWithParams';
